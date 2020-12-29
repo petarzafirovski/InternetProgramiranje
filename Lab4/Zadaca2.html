@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadaca 2</title>
+    <style>
+        .dv{
+            display:inline-block;
+            width: 50px;;
+            margin-bottom: 15px;
+        }
+        button{
+            display: block;
+            margin-left:53px;
+        }
+    </style>
+</head>
+<body>
+  <div class="dv">
+      <span>Items:</span>
+  </div>
+  <input type="text" id="inp"><br>
+
+  <div class="dv">
+    <span>Type:</span>
+</div>
+<select id="dropdown">
+    <option value="radio">Radio Button</option>
+    <option value="checkbox">Check box</option>
+</select>
+<button onclick="prikazi()">Прикажи</button>
+<div id="result">
+
+</div>
+
+<script>
+    function prikazi(){
+        var text = document.getElementById("inp").value;
+        //console.log(text);
+        var string = text.toString().split(",")
+        //console.log(string);
+        var type= document.getElementById("dropdown").value;
+        //console.log(type);
+        
+        var result = document.getElementById("result");
+        var output="";
+        
+        if(text===""){
+            return;
+        }
+        for(var i=0;i<string.length;i++){
+            //console.log(string[i])
+           output+=`<input type="${type}"><label>${string[i]}</label>`;
+        
+        }
+        result.innerHTML=output;
+        document.getElementById("inp").value="";
+    }
+</script>
+</body>
+</html>

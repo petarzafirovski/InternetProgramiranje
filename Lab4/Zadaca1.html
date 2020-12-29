@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadaca 1</title>
+    <style>
+            table, tr th,tr td{
+                
+                border:1px solid black;
+            }
+            table{
+                
+                border-collapse: collapse;
+            }
+
+            td{
+                text-align: center;
+                padding: 5px;
+            }
+            
+            th{
+                padding: 5px;
+            }
+            #container{
+                margin:10px;
+                padding:5px;
+            }
+
+            button{
+                margin:8px;
+               margin-left: 240px;
+            }
+            select{
+                width: 177px;
+            }
+            label{
+                width: 65px;
+            }
+
+            .two,.four{
+                margin-right: 50px;
+            }
+            .one{
+                margin-right:80px;
+            }
+            .three{
+                margin-right: 59px;
+            }
+            .five{
+                margin-right: 66px;
+            }
+            
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Форма за внесување оцени</h1>
+
+        <div class="dv">
+            <label class="one">Име:</label>
+            <input type="text" id="ime">
+        </div>
+        
+        <div class="dv">
+            <label class="two">Презиме:</label>
+            <input type="text" id="prezime">
+        </div>
+
+        <div class="dv">
+            <label class="three">Индекс:</label>
+            <input type="text" id="indeks">
+        </div>
+
+        <div class="dv">
+            <label class="four">Предмет:</label>
+            <input type="text" id="predmet">
+        </div>
+
+        <div class="dv">
+                <label class="five">Оцена:</label>
+            <select id="dropdown">
+                <option value="5">5 (пет)</option>
+                <option value="6">6 (шест)</option>
+                <option value="7">7 (седум)</option>
+                <option value="8">8 (осум)</option>
+                <option value="9">9 (девет)</option>
+                <option value="10">10 (десет)</option>
+            </select>
+        </div>
+        <button onclick="addStudent()" id="btn">Внеси</button>
+    </div>
+
+    <div id="container">
+
+        <table id="tableData">
+            <thead>
+                <tr>
+                    <th>Име</th>
+                    <th>Презиме</th>
+                    <th>Индекс</th>
+                    <th>Предмет</th>
+                    <th>Оцена</th>
+                </tr>
+            </thead>
+            <tbody id="body"></tbody>
+        </table>
+
+    </div>
+
+    <script>
+
+        function addStudent(){
+
+            var name = document.getElementById("ime");
+            var prezime = document.getElementById("prezime");
+            var indeks = document.getElementById("indeks");
+            var predmet = document.getElementById("predmet");
+            var ocena = document.getElementById("dropdown");
+
+            if(name.value==="" || prezime.value==="" || indeks.value==="" || predmet.value===""){
+                alert("All fields are required")
+                return;
+            }
+
+            addNewStudent(name,prezime,indeks,predmet,ocena);
+            clearFields();
+
+        }
+
+        function addNewStudent(name,prezime,indeks,predmet,ocena){
+            var data = document.getElementById("body");
+            var row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${name.value}</td>
+                <td>${prezime.value}</td>
+                <td>${indeks.value}</td>
+                <td>${predmet.value}</td>
+                <td>${ocena.value}</td>
+            `;
+
+            data.appendChild(row);
+        }
+
+        function clearFields(){
+            document.getElementById("ime").value="";
+            document.getElementById("prezime").value="";
+            document.getElementById("indeks").value="";
+            document.getElementById("predmet").value="";
+            document.getElementById("dropdown").value="5";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 3</title>
+    <script>
+        class Volumen{
+            radius
+            visina;
+
+            constructor(radius,visina) {
+                this.radius=radius;
+                this.visina=visina;
+            }
+        }
+
+        Volumen.prototype.calculation = function (){
+            return Math.PI * Math.pow(this.radius,2) * this.visina;
+        }
+
+        var object = new Volumen(2,3);
+        console.log(`Volume is: ${object.calculation().toFixed(2)}`);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

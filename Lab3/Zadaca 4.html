@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 4</title>
+    <script>
+        var poleObjekti = [
+            {
+                author: 'Bill Gates',
+                title: 'The Road Ahead',
+                readingStatus: true
+            },
+            {
+                author: 'Steve Jobs',
+                title: 'Walter Isaacson',
+                readingStatus: true
+            },
+            {
+                author: 'Suzanne Collins',
+                title: 'Mockingjay: The Final Book of The Hunger Games',
+                readingStatus: false
+            },
+            {
+                author: 'Harry Potter',
+                title: 'J.K Rowling',
+                readingStatus: false
+            }];
+
+            for(var i=0; i<poleObjekti.length;i++){
+                if(poleObjekti[i].readingStatus){
+                    console.log(`You already read "${poleObjekti[i].title}" by ${poleObjekti[i].author}`);
+                }
+                else{
+                    console.log(`You still need to read "${poleObjekti[i].title}" by ${poleObjekti[i].author}`);
+                }
+            }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

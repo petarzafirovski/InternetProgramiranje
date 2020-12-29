@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadaca 3</title>
+    <style>
+        #value{
+            margin-top:15px;
+            margin-bottom: 15px;
+        }
+        #mainDiv{
+            margin-left:250px;
+            height: 200px;
+            width: 500px;
+        }
+        
+        .radio{
+            margin-left:135px;
+        }
+        button{
+            margin-left:185px;
+        }
+        #value{
+            margin-left:40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainDiv">
+
+    <h1>Промена на позадина</h1>
+    <input id="color" class="radio" type="radio">Color
+    <input id="img" type="radio">Image
+    <div id="value">
+        <span>Value:</span><input type="text" id="inp">
+    </div>
+
+    <div>
+        <button onclick="promeni()">Промени</button>
+    </div>
+
+    </div>
+
+    <script>
+            function promeni(){
+                var text = document.getElementById("inp").value;
+
+                if(document.getElementById("color").checked){
+                    //console.log("COLOR")
+                    document.getElementById("mainDiv").style.backgroundColor=`${text}`;
+                }
+                if(document.getElementById("img").checked){
+                    //console.log("IMAGE")
+                    document.getElementById("mainDiv").style.backgroundImage=`url(${text})`;
+                    
+                }
+                
+            }
+    </script>
+</body>
+</html>
