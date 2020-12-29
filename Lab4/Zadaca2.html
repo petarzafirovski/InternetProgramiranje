@@ -37,12 +37,8 @@
 <script>
     function prikazi(){
         var text = document.getElementById("inp").value;
-        //console.log(text);
         var string = text.toString().split(",")
-        //console.log(string);
-        var type= document.getElementById("dropdown").value;
-        //console.log(type);
-        
+        var type= document.getElementById("dropdown").value;  
         var result = document.getElementById("result");
         var output="";
         
@@ -50,9 +46,7 @@
             return;
         }
         for(var i=0;i<string.length;i++){
-            //console.log(string[i])
            output+=`<input type="${type}"><label>${string[i]}</label>`;
-        
         }
         result.innerHTML=output;
         document.getElementById("inp").value="";

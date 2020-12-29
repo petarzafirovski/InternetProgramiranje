@@ -34,21 +34,9 @@
             select{
                 width: 177px;
             }
-            label{
-                width: 65px;
-            }
-
-            .two,.four{
-                margin-right: 50px;
-            }
-            .one{
-                margin-right:80px;
-            }
-            .three{
-                margin-right: 59px;
-            }
-            .five{
-                margin-right: 66px;
+            .labelDiv{
+                display: inline-block;
+                width: 110px;
             }
             
     </style>
@@ -57,28 +45,38 @@
     <div>
         <h1>Форма за внесување оцени</h1>
 
-        <div class="dv">
-            <label class="one">Име:</label>
+        <div>
+            <div class="labelDiv">
+                <label>Име:</label>
+            </div>
             <input type="text" id="ime">
         </div>
         
-        <div class="dv">
-            <label class="two">Презиме:</label>
+        <div>
+            <div class="labelDiv">
+                <label>Презиме:</label>
+            </div>
             <input type="text" id="prezime">
         </div>
 
-        <div class="dv">
-            <label class="three">Индекс:</label>
+        <div>
+            <div class="labelDiv">
+                <label>Индекс:</label>
+            </div>
             <input type="text" id="indeks">
         </div>
 
-        <div class="dv">
-            <label class="four">Предмет:</label>
+        <div>
+            <div class="labelDiv">
+                <label>Предмет:</label>
+            </div>
             <input type="text" id="predmet">
         </div>
 
-        <div class="dv">
-                <label class="five">Оцена:</label>
+        <div>
+            <div class="labelDiv">
+                <label>Оцена:</label>
+            </div>
             <select id="dropdown">
                 <option value="5">5 (пет)</option>
                 <option value="6">6 (шест)</option>
