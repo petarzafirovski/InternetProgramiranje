@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadaca 2</title>
+</head>
+<body>
+    <div>
+        <div style="text-align:right; float:left">
+        <label id="obid">Обиди 0</label>
+        <p>Погодок: <input id="guess" style="width:150px"/></p>
+        <button onclick="guessTheNumber()" id="#guess-btn">Погоди</button>
+        <button  id="startOver">Од почеток</button>
+        </div>
+        </div>
+        <br/>
+        <div id="prikaz" style="clear: both">
+        </div>
+
+<script>
+    var winningNumber=getWinningNumber(1000,9999),
+        guessesLeft=10,
+        tryCounter=0,
+        guessInput = document.getElementById("guess"),
+        guessButton = document.getElementById("guess-btn"),
+        fromBeg = document.getElementById("startOver"),
+        container = document.getElementById("prikaz"),
+        obidi = document.getElementById("obid"),
+        min=1000,
+        max=9999;
+
+        function getWinningNumber(min, max){
+        var n = Math.ceil(Math.random()*(max-min+1)+min); 
+        return n;
+        }
+    
+        function checkNumber(number){
+            var guessingNumber = number.toString(), 
+                howMany=0,
+                position=0,
+                winNum=winningNumber.toString();
+            for(var i=0;i<4;i++){
+                        if(guessingNumber.indexOf(winNum[i])> -1){
+                            howMany++;
+                            if(guessingNumber[i]==winNum[i]){
+                                position++;
+                            }
+                        }
+                    }
+            return [howMany,position];
+
+        }
+
+        function guessTheNumber(){
+            var guess = parseInt(guessInput.value);
+            if(guessInput.value==='' || guess<min || guess>max){
+                return;
+            }
+
+            tryCounter++;
+             if(tryCounter<=10){
+                    obidi.innerHTML=`Обиди ${tryCounter}`;
+                    var number = checkNumber(guessInput.value);
+                    container.innerHTML+=`Има ${number[0]} , на место ${number[1]} ${guessInput.value} <br>`;
+                    if(guess==winningNumber){
+                        container.style.color='green';
+                        container.innerHTML+=`ПОГОДОК!!!`;
+                        tryCounter=10;
+                        return;
+                    }
+            }
+
+            if(tryCounter==10){
+                container.style.color='red';
+                container.innerHTML+= `Не успеавте да го погодите бројот од 10 обиди.
+                бројот е ${winningNumber}`;
+                
+            }
+        }
+
+        document.getElementById("startOver").addEventListener("click",function(){
+            guessInput.value='';
+                container.innerHTML='';
+                container.style.color='black';
+                tryCounter=0;
+                obidi.innerHTML=`Обиди ${tryCounter}`;
+                winningNumber=getWinningNumber(1000, 9999);
+        })
+</script>
+</body>
+</html>

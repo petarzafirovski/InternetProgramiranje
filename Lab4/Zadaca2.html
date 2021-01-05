@@ -46,7 +46,10 @@
             return;
         }
         for(var i=0;i<string.length;i++){
-           output+=`<input type="${type}"><label>${string[i]}</label>`;
+            if(string[i]!==""){
+                output+=`<input type="${type}"><label>${string[i]}</label>`;
+            }
+           
         }
         result.innerHTML=output;
         document.getElementById("inp").value="";
